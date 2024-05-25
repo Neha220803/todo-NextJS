@@ -1,20 +1,20 @@
-import React from 'react'
+import EachTask from "./EachTask"
 
-const TodoTable = () => {
+const TodoTable = ({ tasks }) => {
     return (
         <div className="overflow-x-auto">
             <table className="table">
                 <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Favorite Color</th>
+                        <th className="bg-secondary py-3 text-lg text-secondary-content">Tasks</th>
+                        <th className="bg-secondary py-3 text-lg text-secondary-content">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Cy Ganderton</td>
-                        <td>Blue</td>
-                    </tr>
+                    {tasks.map(task => (
+                        <EachTask key={task.id} task={task} />
+                    ))}
+
                 </tbody>
             </table>
         </div>
