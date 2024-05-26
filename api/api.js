@@ -1,4 +1,4 @@
-const baseUrl = 'http://localhost:3001';
+const baseUrl = 'https://todo-next-js-rose.vercel.app/api';
 
 export const getAllTodos = async () => {
     const res = await fetch(`${baseUrl}/tasks`, { cache: 'no-store' });
