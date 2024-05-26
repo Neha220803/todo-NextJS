@@ -8,12 +8,12 @@ import { deleteToDo, editToDo } from "@/api";
 
 const EachTask = ({ task }) => {
   const router = useRouter();
-  const [editModalOpen, seteditModalOpen] = useState(false);
+  const [editModalOpen, setEditModalOpen] = useState(false);
   const [taskToEdit, setTaskToEdit] = useState(task.text);
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
 
   const handleClose = () => {
-    seteditModalOpen(false);
+    setEditModalOpen(false);
   };
 
   const handleDeleteClose = () => {
@@ -25,9 +25,8 @@ const EachTask = ({ task }) => {
     await editToDo({
       id: task.id,
       text: taskToEdit
-    })
-    // setTaskToEdit("");
-    seteditModalOpen(false);
+    });
+    setEditModalOpen(false);
     router.refresh();
   };
 
@@ -35,33 +34,44 @@ const EachTask = ({ task }) => {
     await deleteToDo(id);
     setDeleteModalOpen(false);
     router.refresh();
-
   };
 
   return (
     <tr key={task.id} className="hover">
       <td className="w-full">{task.text}</td>
       <td className="flex gap-5">
-        <FaEdit size={20} className="text-neutral btn btn-sm btn-square btn-ghost p-1" cursor="pointer" onClick={() => seteditModalOpen(true)} />
+        <FaEdit
+          size={20}
+          className="text-neutral btn btn-sm btn-square btn-ghost p-1"
+          cursor="pointer"
+          onClick={() => setEditModalOpen(true)}
+        />
         <div className={`modal ${editModalOpen ? "modal-open" : ""}`}>
           <div className="modal-box">
             <form method="dialog">
               <button onClick={handleClose} className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
             </form>
-            <form
-              onSubmit={handleEditTask}
-            >
+            <form onSubmit={handleEditTask}>
               <h3 className="font-bold text-lg">Edit Task</h3>
               <div className="modal-action">
                 <input
                   value={taskToEdit}
                   onChange={(e) => setTaskToEdit(e.target.value)}
-                  type="text" placeholder="Type here" className="input input-bordered w-full" />
-                <button type="submit" className="btn btn-primary">Done</button></div>
+                  type="text"
+                  placeholder="Type here"
+                  className="input input-bordered w-full"
+                />
+                <button type="submit" className="btn btn-primary">Done</button>
+              </div>
             </form>
           </div>
         </div>
-        <FiTrash2 className="text-red-600 btn btn-sm btn-square btn-ghost p-1" size={23} cursor="pointer" onClick={() => setDeleteModalOpen(true)} />
+        <FiTrash2
+          className="text-red-600 btn btn-sm btn-square btn-ghost p-1"
+          size={23}
+          cursor="pointer"
+          onClick={() => setDeleteModalOpen(true)}
+        />
         <div className={`modal ${deleteModalOpen ? "modal-open" : ""}`}>
           <div className="modal-box">
             <form method="dialog">
@@ -71,18 +81,15 @@ const EachTask = ({ task }) => {
               <h3 className="font-bold text-lg">Delete Task</h3>
               <p className="text-lg pt-5">Are you sure you want to delete this task?</p>
               <div className="modal-action">
-                {/* <button className="btn btn-outlined-secondary">No</button> */}
-                <button type="submit" className="btn  btn-outline btn-primary px-5" onClick={handleDeleteClose}>No</button>
-                <button type="submit" className="btn btn-primary px-5" onClick={() => handleDeleteTask(task.id)}>Yes</button>
+                <button type="button" className="btn btn-outline btn-primary px-5" onClick={handleDeleteClose}>No</button>
+                <button type="button" className="btn btn-primary px-5" onClick={() => handleDeleteTask(task.id)}>Yes</button>
               </div>
             </div>
           </div>
         </div>
-
       </td>
     </tr>
+  );
+};
 
-  )
-}
-
-export default EachTask
+export default EachTask;
