@@ -2,7 +2,7 @@
 
 import { FaPlus } from "react-icons/fa";
 import { useState } from "react";
-import { addToDo } from "@/api";
+import { addToDo } from "./../../api/api";
 import { useRouter } from "next/navigation";
 import { v4 as uuidv4 } from 'uuid';
 

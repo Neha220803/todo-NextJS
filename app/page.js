@@ -1,4 +1,4 @@
-import { getAllTodos } from "@/api";
+import { getAllTodos } from "./../api/api";
 import AddTask from "./components/AddTask";
 import TodoTable from "./components/TodoTable";
 

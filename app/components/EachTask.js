@@ -4,7 +4,7 @@ import { FaEdit } from "react-icons/fa";
 import { FiTrash2 } from "react-icons/fi";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { deleteToDo, editToDo } from "@/api";
+import { deleteToDo, editToDo } from "./../../api/api";
 
 const EachTask = ({ task }) => {
   const router = useRouter();
