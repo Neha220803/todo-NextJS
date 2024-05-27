@@ -20,6 +20,6 @@ module.exports = {
     require('daisyui'),
   ],
   daisyui: {
-    themes: ["retro", "dark", "cmyk"],
+    themes: ["retro", "retro", "retro"],
   },
 };
