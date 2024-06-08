@@ -6,15 +6,15 @@ const TodoTable = ({ tasks }) => {
             <table className="table">
                 <thead>
                     <tr>
-                        <th className="bg-secondary py-3 text-lg text-secondary-content">Tasks</th>
-                        <th className="bg-secondary py-3 text-lg text-secondary-content">Actions</th>
+                        <th className="bg-secondary py-3 sm:text-xl text-lg text-secondary-content"> Tasks</th>
+                        <th className="bg-secondary py-3 sm:text-xl text-lg text-secondary-content hidden sm:table-cell text-center">Deadline</th>
+                        <th className="bg-secondary py-3 sm:text-xl text-lg text-secondary-content text-center">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     {tasks.map(task => (
                         <EachTask key={task.id} task={task} />
                     ))}
-
                 </tbody>
             </table>
         </div>
