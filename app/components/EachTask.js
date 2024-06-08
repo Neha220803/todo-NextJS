@@ -1,6 +1,7 @@
 "use client";
 
 import { FaEdit } from "react-icons/fa";
+import { FcCalendar, IconName } from "react-icons/fc";
 import { FiTrash2 } from "react-icons/fi";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -9,7 +10,8 @@ import { deleteToDo, editToDo } from "./../../api/api";
 const EachTask = ({ task }) => {
   const router = useRouter();
   const [editModalOpen, setEditModalOpen] = useState(false);
-  const [taskToEdit, setTaskToEdit] = useState(task.text);
+  const [taskToEditTitle, setTaskToEditTitle] = useState(task.title);
+  const [taskToEditDesc, setTaskToEditDesc] = useState(task.desc);
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
 
   const handleClose = () => {
@@ -24,7 +26,9 @@ const EachTask = ({ task }) => {
     e.preventDefault();
     await editToDo({
       id: task.id,
-      text: taskToEdit
+      title: taskToEditTitle,
+      desc: taskToEditDesc
+
     });
     setEditModalOpen(false);
     router.refresh();
@@ -38,7 +42,17 @@ const EachTask = ({ task }) => {
 
   return (
     <tr key={task.id} className="hover">
-      <td className="w-full">{task.text}</td>
+      <td className="w-full">
+        <h1 className="text-neutral">
+          {task.title}
+        </h1>
+        <p>
+          {task.desc}
+        </p>
+        <p className="flex justify-content-center align-items-center">
+          <FcCalendar size={20} />Due On: {task.due}
+        </p>
+      </td>
       <td className="flex gap-5">
         <FaEdit
           size={20}
@@ -54,14 +68,24 @@ const EachTask = ({ task }) => {
             <form onSubmit={handleEditTask}>
               <h3 className="font-bold text-lg">Edit Task</h3>
               <div className="modal-action">
-                <input
-                  value={taskToEdit}
-                  onChange={(e) => setTaskToEdit(e.target.value)}
-                  type="text"
-                  placeholder="Type here"
-                  className="input input-bordered w-full"
-                />
-                <button type="submit" className="btn btn-primary">Done</button>
+                <div className="flex flex-col w-full gap-2">
+                  <input
+                    value={taskToEditTitle}
+                    onChange={(e) => setTaskToEditTitle(e.target.value)}
+                    type="text"
+                    placeholder="Type here"
+                    className="input input-bordered w-full"
+                  />
+                  <input
+                    value={taskToEditDesc}
+                    onChange={(e) => setTaskToEditDesc(e.target.value)}
+                    type="text"
+                    placeholder="Type here"
+                    className="input input-bordered w-full"
+                  />
+                  <button type="submit" className="btn btn-primary">Done</button>
+                </div>
+
               </div>
             </form>
           </div>

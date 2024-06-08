@@ -2,23 +2,8 @@
   "tasks": [
     {
       "id": "2",
-      "text": "Task 1"
-    },
-    {
-      "id": "3",
-      "text": "Task 3"
-    },
-    {
-      "id": "4",
-      "text": "task 4"
-    },
-    {
-      "id": "f8a26aeb-0701-437b-ae4b-0a411783bb2f",
-      "text": "task 5"
-    },
-    {
-      "id": "97ba0a87-e948-43d7-b4fb-ea80e7aa5ca7",
-      "text": "drink water"
+      "title": "Task 1",
+      "desc": "bla bla"
     }
   ]
 }
