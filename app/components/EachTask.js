@@ -34,7 +34,8 @@ const EachTask = ({ task }) => {
     await editToDo({
       id: task.id,
       title: taskToEditTitle,
-      desc: taskToEditDesc
+      desc: taskToEditDesc,
+      due: taskToEditDue
 
     });
     setEditModalOpen(false);
@@ -102,7 +103,7 @@ const EachTask = ({ task }) => {
                       onChange={(e) => setTaskToEditTitle(e.target.value)}
                       type="text"
                       placeholder="Type here"
-                      className="input input-bordered w-full"
+                      className={`input input-bordered w-full ${errors.title ? 'input-error' : ''}`}
                     />
                     {errors.title && <span className="text-red-600 text-sm">{errors.title}</span>}
                     <input
@@ -110,7 +111,7 @@ const EachTask = ({ task }) => {
                       onChange={(e) => setTaskToEditDesc(e.target.value)}
                       type="text"
                       placeholder="Type here"
-                      className="input input-bordered w-full"
+                      c className={`input input-bordered w-full ${errors.desc ? 'input-error' : ''}`}
                     />
                     {errors.desc && <span className="text-red-600 text-sm">{errors.desc}</span>}
                     <input

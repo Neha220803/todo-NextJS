@@ -5,6 +5,7 @@ import { useState } from "react";
 import { addToDo } from "./../../api/api";
 import { useRouter } from "next/navigation";
 import { v4 as uuidv4 } from 'uuid';
+import "./../globals.css";
 
 const AddTask = () => {
     const router = useRouter();
@@ -76,6 +77,7 @@ const AddTask = () => {
                                     className={`input input-bordered w-full ${errors.desc ? 'input-error' : ''}`}
                                 />
                                 {errors.desc && <span className="text-red-600 text-sm">{errors.desc}</span>}
+
                                 <input
                                     value={addNewTaskDue}
                                     onChange={(e) => setAddNewTaskDue(e.target.value)}
