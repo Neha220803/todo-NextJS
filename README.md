@@ -1,7 +1,7 @@
 ## Getting Started
 First, clone this git hub repo in your local device
 
-Next, run ```bash npm install ``` in command line
+Next, run ``` npm install ``` in command line
 
 Next, run the development server:
 
