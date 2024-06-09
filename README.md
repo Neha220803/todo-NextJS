@@ -35,7 +35,9 @@ Deleting a Task:
 
 
 The Server is hosted in [https://render.com/](https://render.com/)
-Linking to see the GET method of all the contents in the API:
-[https://todo-server-pydy.onrender.com/api/tasks](https://todo-server-pydy.onrender.com/api/tasks)
-![image](https://github.com/Neha220803/todo-NextJS/assets/111070486/628ef363-afce-45b4-b84c-ba681eff8d89)
 
+Links to see the GET method of all the contents in the API:
+
+[https://todo-server-pydy.onrender.com/api/tasks](https://todo-server-pydy.onrender.com/api/tasks)
+
+![image](https://github.com/Neha220803/todo-NextJS/assets/111070486/628ef363-afce-45b4-b84c-ba681eff8d89)
