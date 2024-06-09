@@ -12,7 +12,7 @@ npm run dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the task manager application.
 
 
-## Deploy on Versel:
+## Deployed on Versel:
 
 Use this Links to see the deployed application:
 
