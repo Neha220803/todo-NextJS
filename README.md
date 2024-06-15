@@ -1,4 +1,4 @@
-## Getting Started
+## To run in local
 First, clone this git hub repo in your local device
 
 Next, run ``` npm install ``` in command line
